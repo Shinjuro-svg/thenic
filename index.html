@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norrbottens Islamiska Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background: #0D6CAC;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            margin-top: -0.5rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #fbbf24;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .support-btn {
+            background: white;
+            color: #1e3a8a;
+            padding: 0.5rem 1rem;
+            border: 2px solid #93c5fd;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .support-btn:hover {
+            background: #fbbf24;
+            border-color: #fbbf24;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #fbbf24;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="islamic" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23islamic)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bismillah {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero-title-arabic {
+            font-size: 3rem;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-title-english {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #e5e7eb;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .prayer-box {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-radius: 15px 15px 0 0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .prayer-location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mosque-icon {
+            font-size: 1.2rem;
+            color: #1e3a8a;
+        }
+
+        .prayer-times {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .prayer-time {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            color: #1e3a8a;
+        }
+
+        .facebook-feeds {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .facebook-post {
+            background: #f3f4f6;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .facebook-post img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .facebook-icon {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            background: #1877f2;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .mission {
+            background: #1e3a8a;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .mission h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .mission p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .donation-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0;
+            align-items: center;
+        }
+
+        .donation-content {
+            background: #1e3a8a;
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+        }
+
+        .donation-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .donation-content p {
+            margin-bottom: 2rem;
+            color: #e5e7eb;
+        }
+
+        .donate-btn {
+            background: #fbbf24;
+            color: #1e3a8a;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .donate-btn:hover {
+            background: #f59e0b;
+            transform: translateY(-2px);
+        }
+
+        .donation-image {
+            text-align: center;
+        }
+
+        .donation-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .image-caption {
+            color: #1e3a8a;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .verse-hadith {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .verse-box, .hadith-box {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .verse-box h3, .hadith-box h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .verse-arabic {
+            font-size: 1.2rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            direction: rtl;
+        }
+
+        .verse-english, .hadith-text {
+            color: #1e3a8a;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .verse-source, .hadith-source {
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .gallery {
+            margin: 4rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: #f3f4f6;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .location {
+            background: #1e3a8a;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .location h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .map-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 3rem 2rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="snowflakes" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="12">❄</text></pattern></defs><rect width="100" height="100" fill="url(%23snowflakes)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            color: white;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo .logo-subtitle {
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #fbbf24;
+        }
+
+        .footer-support {
+            background: #1e3a8a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: 2px solid #93c5fd;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .footer-support:hover {
+            background: #fbbf24;
+            border-color: #fbbf24;
+            color: #1e3a8a;
+        }
+
+        .footer-social h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-social .social-icons {
+            margin-bottom: 1rem;
+        }
+
+        .footer-email {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: white;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #1e3a8a;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav li {
+            margin: 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1rem 2rem;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-nav .support-btn {
+            margin: 1rem 2rem;
+            text-align: center;
+            border: 2px solid #93c5fd;
+            border-radius: 5px;
+            background: white;
+            color: #1e3a8a;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+        }
+
+        .mobile-nav .support-btn:hover {
+            background: #fbbf24;
+            border-color: #fbbf24;
+        }
+
+        .mobile-social {
+            padding: 1rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .mobile-social a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .mobile-social a:hover {
+            color: #fbbf24;
+        }
+
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .nav {
+                gap: 1.5rem;
+            }
+
+            .nav a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 1rem;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .header-actions {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero-title-arabic {
+                font-size: 2rem;
+            }
+
+            .hero-title-english {
+                font-size: 1.8rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .prayer-times {
+                grid-template-columns: 1fr;
+            }
+
+            .facebook-feeds {
+                grid-template-columns: 1fr;
+            }
+
+            .mission {
+                padding: 3rem 1rem;
+                margin: 2rem 0;
+            }
+
+            .mission h2 {
+                font-size: 1.5rem;
+            }
+
+            .mission p {
+                font-size: 1rem;
+            }
+
+            .donation-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .donation-content {
+                padding: 2rem;
+            }
+
+            .donation-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .verse-hadith {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .verse-box, .hadith-box {
+                padding: 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.5rem;
+            }
+
+            .location {
+                padding: 3rem 1rem;
+            }
+
+            .location h2 {
+                font-size: 1.5rem;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+
+            .footer {
+                padding: 2rem 1rem 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-copyright {
+                margin-top: 1rem;
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title-arabic {
+                font-size: 1.5rem;
+            }
+
+            .hero-title-english {
+                font-size: 1.3rem;
+            }
+
+            .bismillah {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .prayer-box {
+                padding: 1.5rem;
+            }
+
+            .donation-content {
+                padding: 1.5rem;
+            }
+
+            .donation-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .verse-box, .hadith-box {
+                padding: 1rem;
+            }
+
+            .verse-arabic {
+                font-size: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div>
+                    <div class="logo-text">nic</div>
+                    <div class="logo-subtitle">Norrbottens Islamiska Center</div>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About NIC</a></li>
+                    <li><a href="#masjid">The Masjid</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#support" class="support-btn">SUPPORT</a>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About NIC</a></li>
+                <li><a href="#masjid">The Masjid</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#support" class="support-btn">SUPPORT</a></li>
+            </ul>
+            <div class="mobile-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="bismillah">بسم الله الرحمن الرحيم</div>
+            <h1 class="hero-title-arabic">مركز نوربوتن الإسلامي</h1>
+            <h2 class="hero-title-english">NORRBOTTENS ISLAMISKA CENTER</h2>
+            <p class="hero-description">
+                Norrbottens Islamiska Center represents a Muslim community living in the northern county of Sweden, Norrbotten.
+            </p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="content-grid">
+            <div>
+                <h3 class="section-title">Prayer Timings</h3>
+                <div class="prayer-box">
+                    <div class="prayer-location">
+                        <i class="fas fa-mosque mosque-icon"></i>
+                        <span>Luleå</span>
+                    </div>
+                    <div class="prayer-times">
+                        <div class="prayer-time">FAJAR: 06:02 AM</div>
+                        <div class="prayer-time">ZUHAR: 12:18 AM</div>
+                        <div class="prayer-time">ASAR: 13:48 AM</div>
+                        <div class="prayer-time">MAGHRIB: 16:11 AM</div>
+                        <div class="prayer-time">ISHA: 18:08 AM</div>
+                        <div class="prayer-time">JUMMAH: 11:46 AM</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="section-title">FACEBOOK FEEDS</h3>
+                <div class="facebook-feeds">
+                    <div class="facebook-post">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop" alt="Children at center">
+                        <div class="facebook-icon">f</div>
+                    </div>
+                    <div class="facebook-post">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop" alt="Speaker at podium">
+                        <div class="facebook-icon">f</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>
+                Based on the statement of God Almighty, "O people! We created you all from a male and a female, and we made you into nations and tribes so that you may know one another" (Surah Al Hujrat Ayah 13). The Islamic Center (NIC) plays a vital and holistic role in bringing the views of the different spectrums of Islamic society together by creating a common language of dialogue without violating the right Islamic rules.
+            </p>
+        </section>
+
+        <section class="donation-section">
+            <div class="donation-content">
+                <h3>We need your support to start building the masjid this year</h3>
+                <p>Please help us with your donations on our donation website</p>
+                <button class="donate-btn">DONATE NOW</button>
+            </div>
+            <div class="donation-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" alt="Salatul Eid on 1st of May 2022">
+                <div class="image-caption">Salatul Eid on 1st of May 2022</div>
+            </div>
+        </section>
+
+        <div class="verse-hadith">
+            <div class="verse-box">
+                <h3><i class="fas fa-mosque"></i> Quranic Verse Of The Day</h3>
+                <div class="verse-source">Surah Al-Isra, Verse 37</div>
+                <div class="verse-arabic">ولا تمش في الأرض مرحاً إنك لن تخرق الأرض ولن تبلغ الجبال طولا</div>
+                <div class="verse-english">
+                    "And do not walk on the earth arrogantly. Surely you can neither crack the earth nor stretch to the height of the mountains."
+                </div>
+            </div>
+            <div class="hadith-box">
+                <h3><i class="fas fa-mosque"></i> Hadith Of The Day</h3>
+                <div class="hadith-text">
+                    A man came to the Prophet and asked, "O Allah's Apostle! Which charity is the most superior in reward?" He replied, "The charity which you practice while you are healthy, niggardly and afraid of poverty and wish to become wealthy. Do not delay it to the time of approaching death and then say, 'Give so much to such and such, and so much to such and such. And it has already belonged to such and such (as it is too late).'"
+                </div>
+                <div class="hadith-source">Sahih Bukhari</div>
+            </div>
+        </div>
+
+        <section class="gallery">
+            <h3 class="section-title">GALLERY</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Community gathering">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Community meal">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Children's activities">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Prayer gathering">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Educational presentation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Outdoor activities">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Community event">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Religious gathering">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Educational workshop">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Community service">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Youth activities">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Cultural event">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="location">
+        <h2>OUR LOCATION</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1658.5!2d22.1!3d65.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNjXCsDM2JzAwLjAiTiAyMsKwMDYnMDAuMCJF!5e0!3m2!1sen!2sse!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-text">nic</div>
+                <div class="logo-subtitle">Norrbottens Islamiska Center</div>
+                <div class="footer-copyright">© 2023 thenic.se</div>
+            </div>
+            <div>
+                <ul class="footer-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About NIC</a></li>
+                    <li><a href="#masjid">The Masjid</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#support" class="footer-support">SUPPORT</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>FOLLOW US</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <a href="mailto:contact@thenic.com" class="footer-email">Email: contact@thenic.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = mobileMenuToggle.querySelector('i');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+            } else {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            }
+        });
+
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 58, 138, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3a8a, #3b82f6)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
