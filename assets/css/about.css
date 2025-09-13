@@ -1,0 +1,159 @@
+.about-main {
+    background: #0D6CAC;
+    min-height: 100vh;
+    position: relative;
+}
+
+.about-section {
+    padding: 4rem 2rem;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.section-content.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.section-content.reverse .image-content {
+    order: -1;
+}
+
+.text-content {
+    color: white;
+}
+
+.section-title {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.goals-list {
+    list-style: none;
+    padding: 0;
+}
+
+.goals-list li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.goals-list li::before {
+    content: "•";
+    color: #FFCB00;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+}
+
+.image-content img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.facilities-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.facilities-section .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.facility-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.facility-icon {
+    font-size: 3rem;
+    color: #FFCB00;
+}
+
+.facility-item span {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .section-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-content.reverse .image-content {
+        order: 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .image-content img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 2rem 1rem;
+    }
+
+    .facilities-section {
+        padding: 2rem 1rem;
+    }
+
+    .facilities-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .text-content p {
+        font-size: 1rem;
+    }
+
+    .goals-list li {
+        font-size: 1rem;
+    }
+}

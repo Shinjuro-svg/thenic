@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About NIC</title>
+    <title>Contact Us</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
@@ -17,11 +17,11 @@
             <nav>
                 <ul class="nav">
                     <li><a href="../../index.html">Home</a></li>
-                    <li><a href="about.html" style="color: #FFCB00 !important;">About NIC</a></li>
+                    <li><a href="about.html">About NIC</a></li>
                     <li><a href="masjid.html">The Masjid</a></li>
                     <li><a href="education.html">Education</a></li>
                     <li><a href="team.html">Team</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html" style="color: #FFCB00 !important;">Contact Us</a></li>
                     <li><a href="#support" class="support-btn">SUPPORT</a></li>
                 </ul>
             </nav>
@@ -38,12 +38,12 @@
         </div>
         <div class="mobile-menu" id="mobile-menu">
             <ul class="mobile-nav">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About NIC</a></li>
-                <li><a href="#masjid">The Masjid</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About NIC</a></li>
+                <li><a href="masjid.html">The Masjid</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="#support" class="support-btn">SUPPORT</a></li>
             </ul>
             <div class="mobile-social">
@@ -59,6 +59,155 @@
             <h2 class="hero-title-english">CONTACT US</h2>
         </div>
     </section>    
+
+    <main class="contact-main">
+        <div class="contact-container">
+            <div class="contact-message">
+                <p>For donations and any other queries, please fill the following form or contact us on given email addresses.</p>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">SEND MESSAGE</button>
+            </form>
+        </div>
+    </main>
+
+    <style>
+        .contact-main {
+            background: #0D6CAC;
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .contact-message {
+            margin-bottom: 3rem;
+        }
+
+        .contact-message p {
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .contact-form {
+            background: transparent;
+            border: 2px solid #FFCB00;
+            border-radius: 10px;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            width: 100%;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            background: white;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #FFCB00;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: #0D6CAC;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #1e3a8a;
+        }
+
+        @media (max-width: 768px) {
+            .contact-main {
+                padding: 2rem 1rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .contact-message p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .contact-message p {
+                font-size: 1rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
@@ -67,13 +216,13 @@
             </div>
             <div>
                 <ul class="footer-nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About NIC</a></li>
-                    <li><a href="#masjid">The Masjid</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#support" class="footer-support">SUPPORT</a></li>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="about.html">About NIC</a></li>
+                    <li><a href="masjid.html">The Masjid</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html" style="color: #FFCB00 !important;">Contact Us</a></li>
+                    <li><a href="#support" class="support-btn">SUPPORT</a></li>
                 </ul>
             </div>
             <div class="footer-social">
@@ -88,4 +237,7 @@
         </div>
     </footer>
 </body>
+
+<script src="../js/script.js"></script>
+
 </html>
